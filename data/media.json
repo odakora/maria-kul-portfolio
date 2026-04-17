@@ -1,0 +1,40 @@
+{
+  "avatar": {
+    "image": "./assets/media/content/avatar/avatar.png"
+  },
+  "thumbnails": [
+    "./assets/media/content/thumbnails/thumbnail - case1.png",
+    "./assets/media/content/thumbnails/thumbnail - case2.png",
+    "./assets/media/content/thumbnails/thumbnail - case3.png"
+  ],
+  "experiments": [
+    {
+      "type": "image",
+      "src": "./assets/media/content/experiments&concepts/media-1.png"
+    },
+    {
+      "type": "video",
+      "src": "./assets/media/content/experiments&concepts/media-2.mp4"
+    },
+    {
+      "type": "image",
+      "src": "./assets/media/content/experiments&concepts/media-3.jpg"
+    },
+    {
+      "type": "image",
+      "src": "./assets/media/content/experiments&concepts/media-4.png"
+    },
+    {
+      "type": "image",
+      "src": "./assets/media/content/experiments&concepts/media-5.png"
+    },
+    {
+      "type": "image",
+      "src": "./assets/media/content/experiments&concepts/media-7.png"
+    },
+    {
+      "type": "image",
+      "src": "./assets/media/content/experiments&concepts/media-10.png"
+    }
+  ]
+}

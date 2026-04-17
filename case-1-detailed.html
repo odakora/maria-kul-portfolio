@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retail Referral Platform - Case Study | Maria Kul</title>
+  <style>
+    @font-face {
+      font-family: "ZT Formom";
+      src:
+        url("./assets/fonts/ZT_formom/ZT Formom - WEB TT/ZT Formom.woff2") format("woff2"),
+        url("./assets/fonts/ZT_formom/ZT Formom - WEB TT/ZT Formom.woff") format("woff"),
+        local("ZT Formom"),
+        local("ZTFormom");
+      font-style: normal;
+      font-weight: 200;
+      font-display: swap;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --bg-black: #000000;
+      --bg-grey: #171717;
+      --bg-chip: #212121;
+      --primary: #D6E0E7;
+      --secondary: #D6E0E7;
+      --trietary: #FFFFFF;
+      --text-muted: rgba(214, 224, 231, 0.55);
+      --text-secondary: #85858a;
+      --text-white: #FFFFFF;
+      --text-dimmed: #d6d6d6;
+      --radius-lg: 24px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+      --radius-xs: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg-black);
+      color: var(--primary);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .case-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-black);
+      overflow: hidden;
+    }
+
+    .content-wrapper {
+      display: flex;
+      gap: 16px;
+      width: 1200px;
+      height: 784px;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel {
+      background: var(--bg-grey);
+      border-radius: var(--radius-lg);
+      padding: 0;
+      height: 100%;
+      position: relative;
+    }
+
+    .left-panel {
+      width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      flex-shrink: 0;
+    }
+
+    .bio-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      width: 352px;
+      flex-shrink: 0;
+    }
+
+    .bio-content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      position: absolute;
+      top: -13.52%;
+      left: 0;
+      width: 100%;
+      height: 137.04%;
+      object-fit: cover;
+    }
+
+    .bio-text {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .heading-1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 352px;
+    }
+
+    .name {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 24px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 30px;
+      color: var(--primary);
+      text-align: center;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .intro {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 24px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 30px;
+      color: var(--text-muted);
+      text-align: center;
+      margin: 0;
+    }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .chip {
+      background: var(--bg-chip);
+      border-radius: var(--radius-sm);
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .chip span {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 15px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: 0.4px;
+      color: var(--trietary);
+      white-space: nowrap;
+    }
+
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      width: 100%;
+      flex-shrink: 0;
+      text-decoration: none;
+      color: var(--primary);
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 17px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 24px;
+      white-space: nowrap;
+    }
+
+    .contact-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .contact-link.cv {
+      justify-content: center;
+      align-items: flex-end;
+      border-radius: var(--radius-sm);
+    }
+
+    .right-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .content-scroll {
+      height: 100%;
+      overflow-y: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .content-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .case-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      height: 770px;
+      align-items: center;
+      max-width: 720px;
+      padding: 0 32px;
+      width: 720px;
+      flex-shrink: 0;
+    }
+
+    .header-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 2.2px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+
+    .title-row {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      width: 656px;
+      flex-shrink: 0;
+    }
+
+    .title-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      align-items: flex-start;
+      flex: 1;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+
+    .case-title {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 32px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.3;
+      color: var(--text-white);
+      letter-spacing: -0.6px;
+      margin: 0;
+      width: 100%;
+    }
+
+    .close-btn {
+      background: #272727;
+      display: flex;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 38px;
+      width: 38px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: #373737;
+    }
+
+    .close-btn img {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .meta-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .meta-label {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: -0.48px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .meta-value {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--primary);
+      letter-spacing: -0.48px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 28px;
+      color: var(--text-white);
+      letter-spacing: -0.4px;
+      margin: 0;
+      width: 100%;
+    }
+
+    .section-content {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: var(--text-secondary);
+      letter-spacing: -0.48px;
+      margin: 0;
+      width: 100%;
+    }
+
+    .section-content p {
+      margin: 0 0 24px;
+    }
+
+    .section-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .image-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .showcase-image {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .showcase-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    .metric-card {
+      background: var(--bg-chip);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+
+    .metric-value {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 28px;
+      color: var(--text-dimmed);
+      letter-spacing: -0.48px;
+      text-align: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    .metric-label {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: var(--text-secondary);
+      letter-spacing: -0.48px;
+      text-align: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    .video-container {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    @media (max-width: 1280px) {
+      .content-wrapper {
+        width: 100%;
+        height: 100vh;
+        padding: 20px;
+      }
+      
+      .left-panel {
+        width: 350px;
+      }
+      
+      .right-panel {
+        flex: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      
+      .left-panel {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+      }
+      
+      .right-panel {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+      }
+      
+      .case-content {
+        height: auto;
+        width: 100%;
+        max-width: none;
+        padding: 0;
+      }
+      
+      .title-row {
+        width: 100%;
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="case-container">
+    <div class="content-wrapper">
+      <!-- Left Bio Panel -->
+      <section class="panel left-panel">
+        <div class="bio-container">
+          <div class="bio-content">
+            <div class="avatar">
+              <img src="./assets/media/content/avatar/avatar.png" alt="Maria Kul profile photo">
+            </div>
+            <div class="bio-text">
+              <div class="heading-1">
+                <h1 class="name">Maria Kul, Product designer</h1>
+                <p class="intro">I turn complex systems into human experience with measurable result</p>
+              </div>
+              <div class="chips">
+                <div class="chip">
+                  <span>B2B</span>
+                </div>
+                <div class="chip">
+                  <span>SaaS</span>
+                </div>
+                <div class="chip">
+                  <span>E-commerce</span>
+                </div>
+                <div class="chip">
+                  <span>Back office</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contacts">
+            <a href="mailto:hello@example.com" class="contact-link">
+              <span>Email</span>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span>Linkedin</span>
+            </a>
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span>Telegram</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="contact-link cv">
+              <span>CV</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Content Panel -->
+      <section class="panel right-panel">
+        <div class="content-scroll">
+          <div class="case-content">
+            <!-- Header Section -->
+            <div class="header-section">
+              <div class="header-content">
+                <div class="title-row">
+                  <div class="title-column">
+                    <h1 class="case-title">Retail Referral Platform</h1>
+                  </div>
+                  <a href="index.html" class="close-btn">
+                    <img src="data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4L16 16M16 4L4 16' stroke='%23D6E0E7' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" alt="Close">
+                  </a>
+                </div>
+                <div class="meta-info">
+                  <div class="meta-row">
+                    <p class="meta-label">Client:</p>
+                    <p class="meta-value">Beautery</p>
+                  </div>
+                  <div class="meta-row">
+                    <p class="meta-label">Timeline:</p>
+                    <p class="meta-value">3 months</p>
+                  </div>
+                  <div class="meta-row">
+                    <p class="meta-label">Role:</p>
+                    <p class="meta-value">Product Designer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overview Section -->
+            <div class="section">
+              <h2 class="section-title">Overview</h2>
+              <div class="section-content">
+                <p>Designed and launched a B2B referral platform connecting retail experts with brands. The system enables experts to earn commissions by recruiting new retail partners while providing brands with a scalable acquisition channel.</p>
+                <p>The project involved comprehensive user research, interface design, and usability testing to create an intuitive experience for both expert and brand user types.</p>
+              </div>
+            </div>
+
+            <!-- Discovery Phase -->
+            <div class="section">
+              <h2 class="section-title">Discovery & Research</h2>
+              <div class="section-content">
+                <p>Conducted stakeholder interviews and competitive analysis to understand the referral ecosystem. Identified key pain points in existing solutions and opportunities for differentiation.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/1e938923-9444-4bbd-ba3a-bd5c04e31dfd" alt="Discovery Benchmarking">
+                </div>
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/8843f8e2-206b-419a-ab06-42491d495473" alt="Discovery Benchmarking Details">
+                </div>
+              </div>
+            </div>
+
+            <!-- Dashboard Design -->
+            <div class="section">
+              <h2 class="section-title">Dashboard Design</h2>
+              <div class="section-content">
+                <p>Created a comprehensive dashboard interface that provides experts with real-time analytics, commission tracking, and partner management tools. The design emphasizes clarity and efficiency for daily operations.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/8d9dba27-8b4a-449d-8241-7b99ef976396" alt="Dashboard Design">
+                </div>
+              </div>
+            </div>
+
+            <!-- Collection Creation Flow -->
+            <div class="section">
+              <h2 class="section-title">Collection Creation Flow</h2>
+              <div class="section-content">
+                <p>Streamlined the process for experts to create and manage product collections, reducing cognitive load and minimizing steps required to complete common tasks.</p>
+              </div>
+              <div class="video-container">
+                <video autoplay muted loop playsinline>
+                  <source src="https://www.figma.com/api/mcp/asset/b5647f82-586c-45e5-8cbd-a5afd9091558" type="video/mp4">
+                </video>
+              </div>
+            </div>
+
+            <!-- Financial Management -->
+            <div class="section">
+              <h2 class="section-title">Financial Management</h2>
+              <div class="section-content">
+                <p>Developed intuitive financial tracking interfaces that help experts monitor earnings, view commission breakdowns, and manage payment preferences with transparency and clarity.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/1aa1019b-899d-4925-8fa6-32cc7d01d667" alt="Financial Management">
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Management -->
+            <div class="section">
+              <h2 class="section-title">Profile Management</h2>
+              <div class="section-content">
+                <p>Designed comprehensive profile systems that allow experts to showcase their expertise, manage their public presence, and build trust with potential brand partners.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/5d3aa501-a79a-4c54-ba4e-07beed6919ab" alt="Profile Management">
+                </div>
+              </div>
+            </div>
+
+            <!-- Alert System -->
+            <div class="section">
+              <h2 class="section-title">Alert System</h2>
+              <div class="section-content">
+                <p>Implemented contextual alert dialogs and notification systems to guide users through complex processes and provide timely feedback on their actions.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/dddcb745-0296-4563-b1f5-062392b75e69" alt="Alert Dialog">
+                </div>
+              </div>
+            </div>
+
+            <!-- Validation States -->
+            <div class="section">
+              <h2 class="section-title">Validation States</h2>
+              <div class="section-content">
+                <p>Created comprehensive validation and error state designs to ensure users receive clear feedback when input validation fails or system errors occur.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/e34fb85a-dccd-4858-9a0c-c5c6a8d0a52a" alt="Validation States">
+                </div>
+              </div>
+            </div>
+
+            <!-- Empty States -->
+            <div class="section">
+              <h2 class="section-title">Empty States</h2>
+              <div class="section-content">
+                <p>Designed thoughtful empty states that guide users toward next actions and maintain engagement even when no data is available.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/8ee0eeda-e161-42c8-9f4d-aee973f6a096" alt="Empty States">
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Design -->
+            <div class="section">
+              <h2 class="section-title">Mobile-First Design</h2>
+              <div class="section-content">
+                <p>Ensured optimal mobile experience with responsive design patterns and touch-friendly interfaces that maintain functionality across all device sizes.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/6ff42793-2239-4c06-9cff-627d34de31f4" alt="Mobile First Design">
+                </div>
+              </div>
+            </div>
+
+            <!-- Design System -->
+            <div class="section">
+              <h2 class="section-title">Design System</h2>
+              <div class="section-content">
+                <p>Established a comprehensive design system with reusable components, consistent typography, and a scalable color palette to ensure design consistency across the platform.</p>
+              </div>
+              <div class="image-showcase">
+                <div class="showcase-image">
+                  <img src="https://www.figma.com/api/mcp/asset/dec90327-ca66-4ff7-8a8c-5e299a73dec3" alt="Design System">
+                </div>
+              </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="section">
+              <h2 class="section-title">Results</h2>
+              <div class="section-content">
+                <p>The platform successfully launched with measurable improvements in user experience and operational efficiency. Key metrics demonstrate the impact of thoughtful design decisions.</p>
+              </div>
+              <div class="metrics-grid">
+                <div class="metric-card">
+                  <p class="metric-value">-55 sec</p>
+                  <p class="metric-label">Time to Create Collection</p>
+                </div>
+                <div class="metric-card">
+                  <p class="metric-value">-21%</p>
+                  <p class="metric-label">Task Completion Time</p>
+                </div>
+                <div class="metric-card">
+                  <p class="metric-value">-30%</p>
+                  <p class="metric-label">Critical Errors</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Outcome Section -->
+            <div class="section">
+              <h2 class="section-title">Outcome</h2>
+              <div class="section-content">
+                <p>Launched a platform where experts can earn and recruit new partners. The most significant improvement came from simplifying navigation through consistent naming and adding contextual UI tooltips.</p>
+              </div>
+            </div>
+
+            <!-- Product Growth -->
+            <div class="section">
+              <h2 class="section-title">Product Growth</h2>
+              <div class="section-content">
+                <p>The backlog includes developing public storefronts to boost organic traffic and implementing granular click-level analytics.</p>
+              </div>
+            </div>
+
+            <!-- Summary & Reflection -->
+            <div class="section">
+              <h2 class="section-title">Summary & Reflection</h2>
+              <div class="section-content">
+                <p>I managed the full design cycle under tight deadlines and resource constraints. This project validated the impact of a systems-thinking approach and usability testing. As my first experience as a solo designer on a complex product, it further strengthened my interest in designing B2B ecosystems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Video controls
+    document.querySelectorAll('video').forEach(video => {
+      video.addEventListener('click', function() {
+        if (this.paused) {
+          this.play();
+        } else {
+          this.pause();
+        }
+      });
+    });
+
+    // Lazy loading for images
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src || img.src;
+          img.classList.add('loaded');
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    document.querySelectorAll('img').forEach(img => {
+      imageObserver.observe(img);
+    });
+  </script>
+</body>
+</html>

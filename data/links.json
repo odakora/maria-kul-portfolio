@@ -1,0 +1,25 @@
+{
+  "contacts": {
+    "email": "sortofwriter@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/kulikova-maria/",
+    "telegram": "t.me/odakora",
+    "cv": "https://drive.google.com/file/d/1XNwL0ffEZEBy8pywmh9WrzfRoIM8tA7i/view?usp=sharing"
+  },
+  "projects": [
+    {
+      "name": "Retail Referral Platform",
+      "brand": "Beautery",
+      "url": "case-beautery-retail-referral-platform"
+    },
+    {
+      "name": "Marketplace Admin Dashboard",
+      "brand": "Beautery",
+      "url": "case-beautery-marketplace-admin-dashboard"
+    },
+    {
+      "name": "Crypto Analytics SaaS",
+      "brand": "Promminer",
+      "url": "https://promminer.ru/promminer-pool/"
+    }
+  ]
+}

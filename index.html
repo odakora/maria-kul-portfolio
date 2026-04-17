@@ -1,0 +1,1247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maria Kul - Portfolio</title>
+  <style>
+    @font-face {
+      font-family: "ZT Formom";
+      src:
+        url("./assets/fonts/ZT_formom/ZT Formom - WEB TT/ZT Formom.woff2") format("woff2"),
+        url("./assets/fonts/ZT_formom/ZT Formom - WEB TT/ZT Formom.woff") format("woff"),
+        local("ZT Formom"),
+        local("ZTFormom");
+      font-style: normal;
+      font-weight: 200;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #000000;
+      --card: #171717;
+      --text-main: #d6e0e7;
+      --text-muted: rgba(214, 224, 231, 0.55);
+      --chip-bg: #212121;
+      --chip-text: rgba(255, 255, 255, 0.7);
+      --radius-lg: 24px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: "ZT Formom", "Georgia", "Times New Roman", serif;
+      overflow: hidden;
+    }
+
+    .page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+      background: #000000;
+      overflow: hidden;
+    }
+    
+    .content-wrapper {
+      display: flex;
+      gap: 16px;
+      width: 1200px;
+      height: calc(100vh - 40px);
+    }
+
+    .panel {
+      background: #111111;
+      border-radius: 24px;
+      padding: 0;
+      height: 100%;
+    }
+
+    .left-panel {
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+      overflow: hidden;
+    }
+
+    .profile {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .profile-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: center 10%;
+      display: block;
+      margin: 0 auto;
+      opacity: 1;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      margin: 0;
+      font-family: "ZT Formom";
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 32px; /* 130% */
+      color: var(--text-muted);
+    }
+
+    .chips {
+      margin-top: 0px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: var(--chip-bg);
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      padding: 7px 12px;
+      font-family: "ZT Formom";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+    }
+
+    .contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      margin-top: auto;
+    }
+
+    .contacts a {
+      color: var(--primary, #D6E0E7);
+      text-decoration: none;
+      font-family: "ZT Formom";
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 141.176% */
+    }
+
+    .contacts a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .right-panel {
+      width: 784px;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+    }
+    
+    .content-scroll {
+      height: 100%;
+      overflow-y: auto;
+      padding: 40px;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;     /* Firefox */
+    }
+    
+    .content-scroll::-webkit-scrollbar {
+      display: none;             /* Chrome, Safari and Opera */
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      align-items: center;
+    }
+
+    .project-brand {
+      margin: 0;
+      font-size: 20px;
+      color: var(--text-muted);
+      line-height: 1.2;
+    }
+
+    .project-title {
+      margin: 6px 0 8px;
+      font-size: 24px;
+      line-height: 24px;
+      font-weight: 400;
+    }
+
+    .project-link {
+      color: var(--primary, #D6E0E7);
+      text-decoration: none;
+      font-family: "ZT Formom";
+      font-size: 17px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px; /* 141.176% */
+    }
+
+    .project-link:hover .project-title {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .project-link[data-project-index="1"]:hover .project-title {
+      text-decoration: none;
+      cursor: default;
+    }
+
+    .bio-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      align-self: stretch;
+    }
+
+    .project-image {
+      width: 100%;
+      max-width: 704px;
+      border-radius: var(--radius-md);
+      display: block;
+      object-fit: cover;
+      background: #202020;
+    }
+
+    .project-video {
+      width: 100%;
+      max-width: 704px;
+      border-radius: var(--radius-md);
+      display: block;
+      background: #202020;
+    }
+
+    .h-621 { height: 621px; }
+    .h-630 { height: 630px; }
+    .h-356 { height: 356px; }
+    .experiments {
+      gap: 24px;
+    }
+
+    .experiments .project-title {
+      margin: 0;
+    }
+
+    @media (max-width: 1200px) {
+      .page {
+        display: none;
+      }
+      
+      .mobile-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        background: var(--bg);
+        text-align: center;
+      }
+      
+      .mobile-message h1 {
+        font-family: "ZT Formom", "Georgia", "Times New Roman", serif;
+        font-size: 24px;
+        line-height: 28px;
+        color: var(--text-main);
+        margin: 0;
+      }
+    }
+    
+    .mobile-message {
+      display: none;
+    }
+
+    /* Modal System */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(9.2px);
+      -webkit-backdrop-filter: blur(9.2px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-window {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 784px;
+      height: 784px;
+      background: var(--bg-grey);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      z-index: 1001;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    .modal-window.active {
+      display: flex;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding: 40px;
+      overflow-y: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .modal-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: #272727;
+      display: flex;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 38px;
+      width: 38px;
+      cursor: pointer;
+      z-index: 1002;
+      transition: background-color 0.2s ease;
+      border: none;
+    }
+
+    .modal-close:hover {
+      background: #373737;
+    }
+
+    .modal-close img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .figma-link {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      padding-top: 4px;
+      text-decoration: none;
+      color: rgba(247, 247, 247, 0.6);
+    }
+
+    .figma-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .figma-link img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .figma-link span {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 17px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 20px;
+      color: inherit;
+      letter-spacing: -0.48px;
+      white-space: nowrap;
+    }
+
+    .image-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .showcase-image {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .showcase-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .video-container {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    
+    .case-detail-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      height: 100%;
+      align-items: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .case-detail-title {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 32px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.3;
+      color: var(--text-white);
+      letter-spacing: -0.6px;
+      margin: 0;
+      text-align: center;
+    }
+
+    .case-detail-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .case-detail-section h2 {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 28px;
+      color: var(--text-white);
+      letter-spacing: -0.4px;
+      margin: 0;
+    }
+
+    .case-detail-section p {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      color: var(--text-secondary);
+      letter-spacing: -0.48px;
+      margin: 0 0 24px;
+    }
+
+    .case-detail-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .case-detail-image {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .case-detail-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .case-detail-video {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .case-detail-video video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .case-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      width: 100%;
+      margin: 16px 0;
+    }
+
+    .case-metric {
+      background: var(--bg-chip);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .case-metric-value {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 28px;
+      color: var(--text-dimmed);
+      letter-spacing: -0.48px;
+      margin: 0 0 4px;
+    }
+
+    .case-metric-label {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: var(--text-secondary);
+      letter-spacing: -0.48px;
+      margin: 0;
+    }
+
+    /* Additional styles from case-1-detailed.html */
+    .case-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      height: 100%;
+      align-items: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .header-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 2.2px;
+      width: 100%;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .title-row {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      width: 656px;
+    }
+
+    .title-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      align-items: flex-start;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .case-title {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 37px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.3;
+      color: var(--text-white);
+      letter-spacing: -0.6px;
+      margin: 0;
+    }
+
+    .close-btn {
+      background: #272727;
+      display: flex;
+      height: 32px;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 12px;
+      border-radius: 38px;
+      width: 38px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      border: none;
+    }
+
+    .close-btn:hover {
+      background: #373737;
+    }
+
+    .close-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .meta-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .meta-label {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      letter-spacing: -0.48px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .meta-value {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 16px;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--primary);
+      letter-spacing: -0.48px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .section-title {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 24px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 28px;
+      color: var(--text-white);
+      letter-spacing: -0.4px;
+      margin: 0;
+    }
+
+    .section-content {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 24px;
+      color: var(--text-muted);
+      letter-spacing: -0.48px;
+    }
+
+    .section-content p {
+      color: var(--text-muted);
+    }
+
+    .section-content p strong {
+      color: var(--text-white);
+    }
+
+    .section-content p {
+      margin: 0 0 24px;
+    }
+
+    .section-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .image-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .showcase-image {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .showcase-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      width: 100%;
+    }
+
+    .metric-card {
+      background: #303030;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .metric-value {
+      font-family: "ZT Formom", "Georgia", serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 28px;
+      color: #d6d6d6;
+      letter-spacing: -0.48px;
+      text-align: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    .metric-label {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 16px;
+      color: #6e6e6e;
+      letter-spacing: -0.48px;
+      text-align: center;
+      margin: 0;
+      width: 100%;
+    }
+
+    .video-container {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="mobile-message">
+    <h1>Desktop only</h1>
+  </div>
+  <main class="page">
+    <div class="content-wrapper">
+      <section class="panel left-panel">
+      <div class="profile">
+        <img id="avatar-image" class="profile-image" src="./assets/media/content/avatar/avatar.png" alt="Maria Kul profile photo">
+        <div class="bio-text">
+          <h1 class="name">Maria Kul, Product designer</h1>
+          <p class="intro">I turn complex systems into human experience with measurable results</p>
+        </div>
+        <div class="chips">
+          <span class="chip">B2B</span>
+          <span class="chip">SaaS</span>
+          <span class="chip">E-commerce</span>
+          <span class="chip">Back office</span>
+        </div>
+      </div>
+
+      <nav class="contacts" aria-label="Contact links">
+        <a id="contact-email" href="mailto:hello@example.com">Email</a>
+        <a id="contact-linkedin" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">Linkedin</a>
+        <a id="contact-telegram" href="https://t.me" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a id="contact-cv" href="#" target="_blank" rel="noopener noreferrer">CV</a>
+      </nav>
+    </section>
+
+    <section class="panel right-panel" id="rightPanel">
+      <div class="content-scroll">
+        <div class="projects">
+        <article class="project">
+          <header class="project-header">
+            <p class="project-brand">Beautery</p>
+            <a class="project-link" data-project-index="0" href="#" onclick="openCaseModal(event)">
+              <h2 class="project-title">Retail Referral Platform</h2>
+            </a>
+          </header>
+          <img id="thumbnail-0" class="project-image h-621" src="./assets/media/content/thumbnails/thumbnail - case1.png" alt="Retail Referral Platform">
+        </article>
+
+        <article class="project">
+          <header class="project-header">
+            <p class="project-brand">Beautery</p>
+            <div class="project-link" data-project-index="1">
+              <h2 class="project-title">Marketplace Admin Dashboard</h2>
+            </div>
+          </header>
+          <img id="thumbnail-1" class="project-image h-630" src="./assets/media/content/thumbnails/thumbnail - case2.png" alt="Marketplace Admin Dashboard">
+        </article>
+
+        <article class="project">
+          <header class="project-header">
+            <p class="project-brand">Promminer</p>
+            <a class="project-link" data-project-index="2" href="https://promminer.ru/promminer-pool/" target="_blank" rel="noopener noreferrer">
+              <h2 class="project-title">Crypto Analytics SaaS</h2>
+            </a>
+          </header>
+          <img id="thumbnail-2" class="project-image h-630" src="./assets/media/content/thumbnails/thumbnail - case3.png" alt="Crypto Analytics SaaS">
+        </article>
+
+        <article class="project experiments">
+          <header class="project-header">
+            <h2 class="project-title">Experiments &amp; Concepts</h2>
+          </header>
+          <img id="experiment-1" class="project-image h-630" src="./assets/media/content/experiments&concepts/media-1.png" alt="Experiment media 1">
+          <div style="position: relative; display: inline-block;">
+            <video id="experiment-2" class="project-video" style="width: 704px; height: auto;" autoplay muted loop playsinline>
+              <source src="./assets/media/content/experiments&concepts/media-2.mp4" type="video/mp4">
+            </video>
+            <button id="unmute-btn-2" style="position: absolute; top: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; border: none; border-radius: 4px; padding: 8px 12px; cursor: pointer; font-size: 12px; font-family: 'ZT Formom', serif;">Unmute</button>
+          </div>
+          <img id="experiment-3" class="project-image h-356" src="./assets/media/content/experiments&concepts/media-3.jpg" alt="Experiment media 3">
+          <img id="experiment-4" class="project-image h-356" src="./assets/media/content/experiments&concepts/media-4.png" alt="Experiment media 4">
+          <img id="experiment-5" class="project-image h-630" src="./assets/media/content/experiments&concepts/media-5.png" alt="Experiment media 5">
+          <img id="experiment-7" class="project-image h-630" src="./assets/media/content/experiments&concepts/media-7.png" alt="Experiment media 7">
+          <img id="experiment-9" class="project-image" style="height: 630px;" src="./assets/media/content/experiments&concepts/media-9.png" alt="Experiment media 9">
+        </article>
+        </div>
+      </div>
+    </section>
+    
+        </div>
+  </main>
+
+  <!-- Case Study Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-window" id="modalWindow">
+      <button class="modal-close" onclick="closeModal()">
+        <img src="https://www.figma.com/api/mcp/asset/85f66b9d-dfa2-418f-b8e9-ed0b2732c4e4" alt="Close">
+      </button>
+      <div class="modal-content">
+        <div class="case-content">
+          <!-- Header Section -->
+          <div class="header-section">
+            <div class="header-content">
+              <div class="title-row">
+                <div class="title-column">
+                  <h1 class="case-title">Retail Referral Platform</h1>
+                  <a href="https://www.figma.com/design/QfNdRX2kfUsoBRwhvxggmp/%D0%9B%D0%9A-%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D1%82%D0%B0-%E2%80%94-Beautery--Public-?node-id=4008-475" target="_blank" rel="noopener noreferrer" class="figma-link">
+                    <img src="https://www.figma.com/api/mcp/asset/28bea748-4106-4023-99d7-33116b736fb7" alt="Figma">
+                    <span>See Figma file</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="image-showcase">
+            <div class="showcase-image">
+              <img src="./assets/media/content/case study 1 /Dashboard.png" alt="Dashboard Design">
+            </div>
+          </div>
+
+          <!-- Context Section -->
+          <div class="section">
+            <h2 class="section-title">Context</h2>
+            <div class="section-content">
+              <p>Beautery is a beauty and health marketplace. In 2025, the team launched a referral program for experts: they curate product collections, share them, and earn commissions - both from their own sales and from the sales of experts they recruit.</p>
+              <p><strong>The Goal:</strong> Design a personal dashboard that helps experts: track and manage earnings, share referral links, and manage product collections.</p>
+              <p><strong>Team:</strong> 1 Frontend Developer, 1 Backend Developer, 1 Product Designer (Me)</p>
+            </div>
+          </div>
+
+          <!-- My Contribution Section -->
+          <div class="section">
+            <h2 class="section-title">My Contribution</h2>
+            <div class="section-content">
+              <p>I managed the full-cycle design process - conducted discovery, mapped user journeys, built prototypes and components, performed usability testing, wrote UX copy, and designed illustrations for banners and empty states. I led the project by communicating with stakeholders, the technical team, and users.</p>
+              <p><strong>Constraints:</strong> Using the existing design system, reusing ready-made front-end and back-end components, and limited resources.</p>
+              <p><strong>Timeline:</strong> 3 months from discovery to launch.</p>
+            </div>
+          </div>
+
+          <!-- Discovery & Research Section -->
+          <div class="section">
+            <h2 class="section-title">Discovery & Research</h2>
+            <div class="section-content">
+              <p>Conducted stakeholder interviews and competitive analysis to understand the referral ecosystem. Identified key pain points in existing solutions and opportunities for differentiation.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Discovery.png" alt="Discovery Benchmarking Details">
+              </div>
+            </div>
+          </div>
+
+          <!-- Dashboard Design Section -->
+          <div class="section">
+            <h2 class="section-title">Dashboard Design</h2>
+            <div class="section-content">
+              <p>Created a comprehensive dashboard interface that provides experts with real-time analytics, commission tracking, and partner management tools. The design emphasizes clarity and efficiency for daily operations.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Dashboard.png" alt="Dashboard Design">
+              </div>
+            </div>
+          </div>
+
+          <!-- Collection Creation Flow Section -->
+          <div class="section">
+            <h2 class="section-title">Collection Creation Flow</h2>
+            <div class="section-content">
+              <p>Streamlined the process for experts to create and manage product collections, reducing cognitive load and minimizing steps required to complete common tasks.</p>
+            </div>
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="./assets/media/content/case study 1 /Collection Creation.mov" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <!-- Financial Management Section -->
+          <div class="section">
+            <h2 class="section-title">Financial Management</h2>
+            <div class="section-content">
+              <p>Developed intuitive financial tracking interfaces that help experts monitor earnings, view commission breakdowns, and manage payment preferences with transparency and clarity.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Finances.png" alt="Financial Management">
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Management Section -->
+          <div class="section">
+            <h2 class="section-title">Profile Management</h2>
+            <div class="section-content">
+              <p>Designed comprehensive profile systems that allow experts to showcase their expertise, manage their public presence, and build trust with potential brand partners.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Profile.png" alt="Profile Management">
+              </div>
+            </div>
+          </div>
+
+          <!-- Alert System Section -->
+          <div class="section">
+            <h2 class="section-title">Alert System</h2>
+            <div class="section-content">
+              <p>Implemented contextual alert dialogs and notification systems to guide users through complex processes and provide timely feedback on their actions.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Alarm.png" alt="Alert Dialog">
+              </div>
+            </div>
+          </div>
+
+          <!-- Validation States Section -->
+          <div class="section">
+            <h2 class="section-title">Validation States</h2>
+            <div class="section-content">
+              <p>Created comprehensive validation and error state designs to ensure users receive clear feedback when input validation fails or system errors occur.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Validation.png" alt="Validation States">
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty States Section -->
+          <div class="section">
+            <h2 class="section-title">Empty States</h2>
+            <div class="section-content">
+              <p>Designed thoughtful empty states that guide users toward next actions and maintain engagement even when no data is available.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Empty Space.png" alt="Empty States">
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Design Section -->
+          <div class="section">
+            <h2 class="section-title">Mobile-First Design</h2>
+            <div class="section-content">
+              <p>Ensured optimal mobile experience with responsive design patterns and touch-friendly interfaces that maintain functionality across all device sizes.</p>
+            </div>
+            <div class="image-showcase">
+              <div class="showcase-image">
+                <img src="./assets/media/content/case study 1 /Mobile First.png" alt="Mobile First Design">
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div class="section">
+            <h2 class="section-title">Results</h2>
+            <div class="section-content">
+              <p>The platform successfully launched with measurable improvements in user experience and operational efficiency.</p>
+            </div>
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <p class="metric-value">58% &rarr; 74%</p>
+                <p class="metric-label">Task Success Rate</p>
+              </div>
+              <div class="metric-card">
+                <p class="metric-value">-55 sec</p>
+                <p class="metric-label">Time to Create Collection</p>
+              </div>
+              <div class="metric-card">
+                <p class="metric-value">-21%</p>
+                <p class="metric-label">Task Completion Time</p>
+              </div>
+              <div class="metric-card">
+                <p class="metric-value">-30%</p>
+                <p class="metric-label">Critical Errors</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outcome Section -->
+          <div class="section">
+            <h2 class="section-title">Outcome</h2>
+            <div class="section-content">
+              <p>Launched a platform where experts can earn and recruit new partners. The most significant improvement came from simplifying navigation through consistent naming and adding contextual UI tooltips.</p>
+            </div>
+          </div>
+
+          <!-- Product Growth Section -->
+          <div class="section">
+            <h2 class="section-title">Product Growth</h2>
+            <div class="section-content">
+              <p>The backlog includes developing public storefronts to boost organic traffic and implementing granular click-level analytics.</p>
+            </div>
+          </div>
+
+          <!-- Summary & Reflection Section -->
+          <div class="section">
+            <h2 class="section-title">Summary & Reflection</h2>
+            <div class="section-content">
+              <p>I managed the full design cycle under tight deadlines and resource constraints. This project validated the impact of a systems-thinking approach and usability testing. As my first experience as a solo designer on a complex product, it further strengthened my interest in designing B2B ecosystems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function ensureUrlProtocol(value, fallbackProtocol) {
+      if (!value) return "";
+      if (/^https?:\/\//i.test(value) || /^mailto:/i.test(value)) return value;
+      return (fallbackProtocol || "https://") + value.replace(/^\/+/, "");
+    }
+
+    Promise.all([
+      fetch("./data/links.json").then(function (res) { return res.json(); }),
+      fetch("./data/media.json").then(function (res) { return res.json(); })
+    ])
+      .then(function (payload) {
+        var linksData = payload[0] || {};
+        var mediaData = payload[1] || {};
+
+        var avatar = mediaData.avatar || {};
+        var thumbnails = Array.isArray(mediaData.thumbnails) ? mediaData.thumbnails : [];
+        var experiments = Array.isArray(mediaData.experiments) ? mediaData.experiments : [];
+
+        var avatarImage = document.getElementById("avatar-image");
+        if (avatar.image && avatarImage) avatarImage.src = avatar.image;
+
+        thumbnails.forEach(function (src, index) {
+          var thumb = document.getElementById("thumbnail-" + index);
+          if (thumb && src) thumb.src = src;
+        });
+
+        experiments.forEach(function (item, idx) {
+          var index = idx + 1;
+          if (!item || !item.type) return;
+
+          if (item.type === "image") {
+            var img = document.getElementById("experiment-" + index);
+            if (img && item.src) img.src = item.src;
+            return;
+          }
+
+          if (item.type === "video") {
+            var video = document.getElementById("experiment-" + index);
+            if (video && item.src) {
+              var source = video.querySelector('source');
+              if (source) source.src = item.src;
+              video.load();
+            }
+            return;
+          }
+        });
+
+        var data = linksData;
+        var contacts = data.contacts || {};
+        var email = document.getElementById("contact-email");
+        var linkedin = document.getElementById("contact-linkedin");
+        var telegram = document.getElementById("contact-telegram");
+        var cv = document.getElementById("contact-cv");
+
+        if (contacts.email && email) email.href = ensureUrlProtocol(contacts.email, "mailto:");
+        if (contacts.linkedin && linkedin) linkedin.href = ensureUrlProtocol(contacts.linkedin, "https://");
+        if (contacts.telegram && telegram) telegram.href = ensureUrlProtocol(contacts.telegram, "https://");
+        if (contacts.cv && cv) cv.href = ensureUrlProtocol(contacts.cv, "https://");
+
+        var projects = Array.isArray(data.projects) ? data.projects : [];
+        projects.forEach(function (project, index) {
+          var href = ensureUrlProtocol(project.url, "https://");
+          if (!href) return;
+          document.querySelectorAll('[data-project-index="' + index + '"]').forEach(function (el) {
+            el.href = href;
+          });
+        });
+      })
+      .catch(function (err) {
+        console.error("Unable to load links/media data", err);
+      });
+
+    // Unmute button functionality
+    var unmuteBtn = document.getElementById("unmute-btn-2");
+    var video = document.getElementById("experiment-2");
+    
+    if (unmuteBtn && video) {
+      unmuteBtn.addEventListener("click", function() {
+        if (video.muted) {
+          video.muted = false;
+          unmuteBtn.textContent = "Mute";
+        } else {
+          video.muted = true;
+          unmuteBtn.textContent = "Unmute";
+        }
+      });
+    }
+
+    // Modal functionality
+    function openCaseModal(event) {
+      event.preventDefault();
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalWindow = document.getElementById('modalWindow');
+      
+      if (modalOverlay && modalWindow) {
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        modalOverlay.classList.add('active');
+        modalWindow.classList.add('active');
+      }
+    }
+
+    function closeModal() {
+      const modalOverlay = document.getElementById('modalOverlay');
+      const modalWindow = document.getElementById('modalWindow');
+      
+      if (modalOverlay && modalWindow) {
+        modalOverlay.classList.remove('active');
+        modalWindow.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+      }
+    }
+
+    function closeModalOnBackdrop(event) {
+      if (event.target === event.currentTarget) {
+        closeModal();
+      }
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    
+  </script>
+</body>
+</html>
