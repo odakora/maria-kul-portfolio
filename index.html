@@ -890,7 +890,9 @@
     <div class="content-wrapper">
       <section class="panel left-panel">
       <div class="profile">
+        <div onclick="document.querySelector('.content-scroll').scrollTop = 0" style="cursor: pointer; display: inline-block;">
         <img id="avatar-image" class="profile-image" src="./assets/media/content/avatar/avatar.png" alt="Maria Kul profile photo">
+      </div>
         <div class="bio-text">
           <h1 class="name">Maria Kul, Product designer</h1>
           <p class="intro">I turn complex systems into human experience with measurable results</p>
@@ -1637,10 +1639,29 @@
       }
     };
 
+    // URL parameter handling
+    function getCaseStudyFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const caseId = urlParams.get('case');
+      return caseId ? parseInt(caseId) : null;
+    }
+
+    function updateURL(caseId) {
+      if (caseId !== null) {
+        const url = new URL(window.location);
+        url.searchParams.set('case', caseId);
+        window.history.pushState({ caseId }, '', url);
+      } else {
+        const url = new URL(window.location);
+        url.searchParams.delete('case');
+        window.history.pushState({}, '', url);
+      }
+    }
+
     // Modal functionality
-    function openCaseModal(event) {
-      event.preventDefault();
-      const projectIndex = event.currentTarget.getAttribute('data-project-index');
+    function openCaseModal(event, caseId = null) {
+      if (event) event.preventDefault();
+      const projectIndex = caseId !== null ? caseId : event.currentTarget.getAttribute('data-project-index');
       const caseStudy = caseStudies[projectIndex];
       
       if (!caseStudy) return;
@@ -1675,10 +1696,21 @@
       const newSections = tempDiv.querySelectorAll('.section');
       newSections.forEach(section => caseContent.appendChild(section));
       
+      // Reset modal content scroll position immediately
+      caseContent.scrollTop = 0;
+      
       if (modalOverlay && modalWindow) {
+        window.scrollTo(0, 0); // Scroll to top
+        updateURL(projectIndex); // Update URL
         document.body.style.overflow = 'hidden'; // Prevent background scrolling
         modalOverlay.classList.add('active');
         modalWindow.classList.add('active');
+        
+        // Reset modal scroll position instantly
+        const modalContent = modalWindow.querySelector('.modal-content');
+        if (modalContent) {
+          modalContent.scrollTop = 0;
+        }
       }
     }
 
@@ -1690,8 +1722,54 @@
         modalOverlay.classList.remove('active');
         modalWindow.classList.remove('active');
         document.body.style.overflow = ''; // Restore scrolling
+        updateURL(null); // Clear URL parameter
       }
     }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function(event) {
+      if (event.state && event.state.caseId !== undefined) {
+        if (event.state.caseId !== null) {
+          openCaseModal(null, event.state.caseId);
+        } else {
+          closeModal();
+        }
+      } else {
+        const caseId = getCaseStudyFromURL();
+        if (caseId !== null) {
+          openCaseModal(null, caseId);
+        }
+      }
+    });
+
+    // Check URL on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const caseId = getCaseStudyFromURL();
+      if (caseId !== null) {
+        openCaseModal(null, caseId);
+      }
+    });
+
+    // Add smooth scroll to top functionality for avatar
+    function addAvatarScrollFunctionality() {
+      const avatarImage = document.getElementById('avatar-image');
+      if (avatarImage) {
+        avatarImage.style.cursor = 'pointer';
+        avatarImage.addEventListener('click', function() {
+          // Smooth scroll to top of the page
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+    }
+
+    // Try to add avatar functionality immediately
+    addAvatarScrollFunctionality();
+
+    // Also try after a short delay in case DOM isn't ready
+    setTimeout(addAvatarScrollFunctionality, 100);
 
     function closeModalOnBackdrop(event) {
       if (event.target === event.currentTarget) {
