@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-button { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; margin: 10px; }
+        .status { margin: 10px 0; padding: 10px; background: #f0f0f0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Modal Functionality Test</h1>
+    
+    <div class="status" id="status">
+        Testing modal functionality...
+    </div>
+    
+    <button class="test-button" onclick="testModal()">Test Modal Opening</button>
+    <button class="test-button" onclick="window.open('http://localhost:8000', '_blank')">Open Portfolio Site</button>
+    
+    <script>
+        function testModal() {
+            const status = document.getElementById('status');
+            
+            // Test if modal elements exist
+            fetch('http://localhost:8000')
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    const modalOverlay = doc.getElementById('modalOverlay');
+                    const modalWindow = doc.getElementById('modalWindow');
+                    const openCaseModalFunc = html.includes('function openCaseModal');
+                    const caseStudiesData = html.includes('const caseStudies = {');
+                    const projectLinks = doc.querySelectorAll('[data-project-index="0"]');
+                    
+                    let results = [];
+                    
+                    if (modalOverlay) results.push('✓ Modal overlay element found');
+                    else results.push('✗ Modal overlay element missing');
+                    
+                    if (modalWindow) results.push('✓ Modal window element found');
+                    else results.push('✗ Modal window element missing');
+                    
+                    if (openCaseModalFunc) results.push('✓ openCaseModal function found');
+                    else results.push('✗ openCaseModal function missing');
+                    
+                    if (caseStudiesData) results.push('✓ Case studies data found');
+                    else results.push('✗ Case studies data missing');
+                    
+                    if (projectLinks.length > 0) results.push('✓ Project links found');
+                    else results.push('✗ Project links missing');
+                    
+                    status.innerHTML = results.join('<br>') + '<br><br><strong>Modal is ready to test!</strong>';
+                    status.className = 'status success';
+                    
+                    // Open the main site in a new window for manual testing
+                    window.open('http://localhost:8000', '_blank');
+                })
+                .catch(error => {
+                    status.innerHTML = 'Error loading page: ' + error.message;
+                    status.className = 'status error';
+                });
+        }
+        
+        // Auto-test on load
+        window.onload = function() {
+            setTimeout(testModal, 1000);
+        };
+    </script>
+</body>
+</html>
