@@ -82,7 +82,7 @@
     }
 
     .panel {
-      background: #111111;
+      background: #181818;
       border-radius: 24px;
       padding: 0;
       height: 100%;
@@ -351,7 +351,7 @@
       }
       
       .profile {
-        background: #111111 !important;
+        background: #181818 !important;
         padding: 40px 20px !important;
         min-height: 500px !important;
         text-align: center !important;
@@ -406,6 +406,7 @@
         justify-content: center !important;
         gap: 20px !important;
         flex-wrap: wrap !important;
+        padding-bottom: 24px !important;
       }
       
       .contacts a {
@@ -486,6 +487,10 @@
       .modal-content {
         padding: 20px;
         height: calc(100vh - 40px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        -webkit-overflow-scrolling: touch;
       }
       
       .case-title {
