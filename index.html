@@ -1252,16 +1252,17 @@
 
     .header-content {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: flex-start;
+      justify-content: space-between;
+      align-items: center;
+      gap: auto;
+      width: 100%;
     }
 
     .title-row {
       display: flex;
       gap: 24px;
       align-items: flex-start;
-      width: 656px;
+      flex: 1;
     }
 
     .title-column {
@@ -1615,7 +1616,6 @@
           <!-- Header Section -->
           <div class="header-section">
             <div class="header-content">
-              <a href="#" class="back-button" onclick="closeModal()">Back</a>
               <div class="title-row">
                 <div class="title-column">
                   <h1 class="case-title">Retail Referral Platform</h1>
@@ -1624,6 +1624,7 @@
                   </a>
                                   </div>
               </div>
+              <a href="#" class="back-button" onclick="closeModal()">Close</a>
             </div>
           </div>
 
@@ -1832,12 +1833,12 @@
           <!-- Header Section -->
           <div class="header-section">
             <div class="header-content">
-              <a href="#" class="back-button" onclick="closeModal2()">Back</a>
               <div class="title-row">
                 <div class="title-column">
                   <h1 class="case-title">Marketplace Admin Dashboard</h1>
                 </div>
               </div>
+              <a href="#" class="back-button" onclick="closeModal2()">Close</a>
             </div>
           </div>
 
