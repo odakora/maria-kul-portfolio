@@ -528,10 +528,6 @@
         line-height: 24px;
       }
       
-      .back-button {
-        font-size: 12px;
-      }
-      
       /* Case 1 Modal Mobile Optimizations */
       .case-content {
         padding: 0 !important;
@@ -551,25 +547,6 @@
       .title-column {
         margin-top: 16px !important;
         gap: 8px !important;
-      }
-      
-      .back-button {
-        font-size: 14px !important;
-        padding: 8px 16px !important;
-        margin: 0 !important;
-        border: none !important;
-        border-radius: 100px !important;
-        background: rgba(247, 247, 247, 0.1) !important;
-        color: rgba(247, 247, 247, 0.8) !important;
-        text-decoration: none !important;
-        display: inline-block !important;
-        transition: all 0.2s ease !important;
-      }
-      
-      .back-button:hover {
-        background: rgba(247, 247, 247, 0.2) !important;
-        color: rgba(247, 247, 247, 1) !important;
-        text-decoration: none !important;
       }
       
       .figma-link {
@@ -720,24 +697,6 @@
       }
       
       /* Tablet Modal Styles */
-      .back-button {
-        font-size: 14px !important;
-        padding: 8px 16px !important;
-        border: none !important;
-        border-radius: 100px !important;
-        background: rgba(247, 247, 247, 0.1) !important;
-        color: rgba(247, 247, 247, 0.8) !important;
-        text-decoration: none !important;
-        display: inline-block !important;
-        transition: all 0.2s ease !important;
-      }
-      
-      .back-button:hover {
-        background: rgba(247, 247, 247, 0.2) !important;
-        color: rgba(247, 247, 247, 1) !important;
-        text-decoration: none !important;
-      }
-      
       .figma-link {
         font-size: 13px !important;
       }
@@ -830,24 +789,6 @@
       }
       
       /* Small Mobile Modal Styles */
-      .back-button {
-        font-size: 14px !important;
-        padding: 8px 16px !important;
-        border: none !important;
-        border-radius: 100px !important;
-        background: rgba(247, 247, 247, 0.1) !important;
-        color: rgba(247, 247, 247, 0.8) !important;
-        text-decoration: none !important;
-        display: inline-block !important;
-        transition: all 0.2s ease !important;
-      }
-      
-      .back-button:hover {
-        background: rgba(247, 247, 247, 0.2) !important;
-        color: rgba(247, 247, 247, 1) !important;
-        text-decoration: none !important;
-      }
-      
       .figma-link {
         font-size: 12px !important;
       }
@@ -993,10 +934,7 @@
     }
 
     .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: #272727;
+      background: #FFFFFF;
       display: flex;
       height: 32px;
       align-items: center;
@@ -1008,16 +946,16 @@
       z-index: 1002;
       transition: background-color 0.2s ease;
       border: none;
+      flex-shrink: 0;
     }
 
     .modal-close:hover {
-      background: #373737;
+      background: #F0F0F0;
     }
 
     .modal-close img {
       width: 20px;
       height: 20px;
-      filter: brightness(0) invert(1);
       display: block;
     }
 
@@ -1052,25 +990,6 @@
       letter-spacing: -0.48px;
     }
 
-    .back-button {
-      font-family: "Inter Tight", sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 100px;
-      background: rgba(247, 247, 247, 0.1);
-      color: rgba(247, 247, 247, 0.8);
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s ease;
-    }
-
-    .back-button:hover {
-      background: rgba(247, 247, 247, 0.2);
-      color: rgba(247, 247, 247, 1);
-      text-decoration: none;
-    }
 
     .image-showcase {
       display: flex;
@@ -1624,7 +1543,9 @@
                   </a>
                                   </div>
               </div>
-              <a href="#" class="back-button" onclick="closeModal()">Close</a>
+              <button class="modal-close" onclick="closeModal()" aria-label="Close">
+                <img src="./close.svg" alt="Close">
+              </button>
             </div>
           </div>
 
@@ -1838,7 +1759,9 @@
                   <h1 class="case-title">Marketplace Admin Dashboard</h1>
                 </div>
               </div>
-              <a href="#" class="back-button" onclick="closeModal2()">Close</a>
+              <button class="modal-close" onclick="closeModal2()" aria-label="Close">
+                <img src="./close.svg" alt="Close">
+              </button>
             </div>
           </div>
 
