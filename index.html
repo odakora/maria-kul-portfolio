@@ -881,7 +881,6 @@
       height: 784px;
       background: var(--bg-grey);
       border-radius: var(--radius-lg);
-      overflow: hidden;
       z-index: 1001;
       display: flex;
       opacity: 0;
@@ -934,7 +933,7 @@
     }
 
     .modal-close {
-      background: #FFFFFF;
+      background: #4D4D4D;
       display: flex;
       height: 32px;
       align-items: center;
@@ -947,16 +946,18 @@
       transition: background-color 0.2s ease;
       border: none;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     }
 
     .modal-close:hover {
-      background: #F0F0F0;
+      background: #404040;
     }
 
     .modal-close img {
       width: 20px;
       height: 20px;
       display: block;
+      filter: brightness(0) invert(1);
     }
 
     .figma-link {
@@ -978,6 +979,13 @@
       height: 16px;
       filter: brightness(0) invert(1) opacity(0.6);
       display: block;
+    }
+
+    .figma-link .figma-icon {
+      width: 16px;
+      height: 16px;
+      display: block;
+      filter: brightness(0) invert(1) opacity(0.6);
     }
 
     .figma-link span {
@@ -1063,7 +1071,7 @@
       font-size: 20px;
       font-weight: 400;
       font-style: normal;
-      line-height: 28px;
+      line-height: 20px;
       color: var(--text-white);
       letter-spacing: -0.4px;
       margin: 0;
@@ -1159,6 +1167,7 @@
       align-items: center;
       max-width: 720px;
       margin: 0 auto;
+      padding: 40px 0;
     }
 
     .header-section {
@@ -1301,7 +1310,7 @@
     }
 
     .section-content p {
-      margin: 0 0 32px;
+      margin: 0 0 24px;
     }
 
     .section-content p:last-child {
@@ -1539,6 +1548,7 @@
                 <div class="title-column">
                   <h1 class="case-title">Retail Referral Platform</h1>
                   <a href="https://www.figma.com/design/QfNdRX2kfUsoBRwhvxggmp/%D0%9B%D0%9A-%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D1%82%D0%B0-%E2%80%94-Beautery--Public-?node-id=4008-475" target="_blank" rel="noopener noreferrer" class="figma-link">
+                    <img src="./figma.svg" alt="Figma" class="figma-icon">
                     <span>See Figma file</span>
                   </a>
                                   </div>
@@ -1546,13 +1556,6 @@
               <button class="modal-close" onclick="closeModal()" aria-label="Close">
                 <img src="./close.svg" alt="Close">
               </button>
-            </div>
-          </div>
-
-          <!-- Hero Image -->
-          <div class="image-showcase">
-            <div class="showcase-image">
-              <img src="./assets/media/content/case study 1 /Top Media.png" alt="Dashboard Design">
             </div>
           </div>
 
@@ -1762,15 +1765,6 @@
               <button class="modal-close" onclick="closeModal2()" aria-label="Close">
                 <img src="./close.svg" alt="Close">
               </button>
-            </div>
-          </div>
-
-          <!-- Top Media Section -->
-          <div class="section case2-spacing">
-            <div class="image-showcase">
-              <div class="showcase-image">
-                <img src="./assets/media/content/case study 2/Top Media.png" alt="Marketplace Admin Dashboard">
-              </div>
             </div>
           </div>
 
