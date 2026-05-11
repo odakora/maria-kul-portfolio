@@ -964,7 +964,7 @@
       display: flex;
       gap: 6px;
       align-items: center;
-      padding-top: 4px;
+      margin: 10px 0;
       text-decoration: none;
       color: rgba(247, 247, 247, 0.6);
     }
@@ -1317,6 +1317,12 @@
       margin-bottom: 0;
     }
 
+    .section-content ul {
+      margin: 0;
+      padding: 0;
+      list-style-position: inside;
+    }
+
     .image-showcase {
       display: flex;
       flex-direction: column;
@@ -1561,7 +1567,7 @@
 
           <!-- Context Section -->
           <div class="section">
-            <h2 class="section-title">Context</h2>
+            <h2 class="section-title" style="margin-top: 12px;">Context</h2>
             <div class="section-content">
               <p>Beautery is a beauty and health marketplace. In 2025, the team launched a referral program for experts: they curate product collections, share them, and earn commissions - both from their own sales and from the sales of experts they recruit.</p>
               <p><strong style="color: var(--text-white);">The Task:</strong> Design a personal dashboard that helps experts: track and manage earnings, share referral links, and manage product collections.</p>
@@ -1770,19 +1776,9 @@
 
           <!-- Intro Section -->
           <div class="section case2-spacing">
-            <h2 class="section-title case2-small">Intro</h2>
+            <h2 class="section-title case2-small" style="margin-top: 14px;">Intro</h2>
             <div class="section-content">
               <p>I worked within a product team on an internal back-office for a large-scale marketplace. My primary focus was the Content Management & Global Settings segments. I designed end-to-end scenarios for managing marketplace content, as well as core system configurations, including logo, contact data, and user role management.</p>
-            </div>
-            <div class="metrics-grid" style="margin-top: 14px;">
-              <div class="metric-card">
-                <p class="metric-value">30% faster Time-to-Market</p>
-                <p class="metric-subtitle">Achieved by leveraging an open-source design system</p>
-              </div>
-              <div class="metric-card">
-                <p class="metric-value">Reusable System Solution</p>
-                <p class="metric-subtitle">Later scaled across 2 other projects: Costo and Beautery</p>
-              </div>
             </div>
           </div>
 
@@ -1796,6 +1792,21 @@
                 <li> Ensuring the architecture could support future feature expansion</li>
                 <li> Streamlining internal workflows for content managers</li>
               </ul>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div class="section case2-spacing">
+            <h2 class="section-title case2-small">Results</h2>
+            <div class="metrics-grid" style="margin-top: 0;">
+              <div class="metric-card">
+                <p class="metric-value">30% faster Time-to-Market</p>
+                <p class="metric-subtitle">Achieved by leveraging an open-source design system</p>
+              </div>
+              <div class="metric-card">
+                <p class="metric-value">Reusable System Solution</p>
+                <p class="metric-subtitle">Later scaled across 2 other projects: Costo and Beautery</p>
+              </div>
             </div>
           </div>
 
